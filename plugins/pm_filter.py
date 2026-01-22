@@ -805,7 +805,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 📜', url='https://t.me/NeonGhost'),
+            InlineKeyboardButton('ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 📜', url='https://github.com/NBBotz/Auto-Filter-Bot.git'),
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='me')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -841,52 +841,25 @@ async def auto_filter(client, msg, spoll=False):
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if len(message.text) < 100:
-    search = await replace_words(message.text)
-    search = search.lower()
-    search = search.replace("-", " ")
-    search = search.replace(":", "")
-    search = search.replace("'", "")
-    search = re.sub(r'\s+', ' ', search).strip()
-
-    m = await message.reply_text(
-        f'<b>Wait {message.from_user.mention} Searching Your Query: <i>{search}...</i></b>',
-        reply_to_message_id=message.id
-    )
-
-    files, offset, total_results = await get_search_results(
-        message.chat.id,
-        search,
-        offset=0,
-        filter=True
-    )
-
-    settings = await get_settings(message.chat.id)
-
-    if not files:
-        if settings["spell_check"]:
-            ai_sts = await m.edit(
-                '🤖 ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ, ᴀɪ ɪꜱ ᴄʜᴇᴄᴋɪɴɢ ʏᴏᴜʀ ꜱᴘᴇʟʟɪɴɢ...'
-            )
-
-            is_misspelled = await ai_spell_check(
-                chat_id=message.chat.id,
-                wrong_name=search
-            )
-
-            if is_misspelled:
-                await ai_sts.edit(
-                    f'<b>✅ Aɪ Sᴜɢɢᴇsᴛᴇᴅ ᴍᴇ '
-                    f'<code>{is_misspelled}</code>\n'
-                    f'Sᴏ Iᴍ Sᴇᴀʀᴄʜɪɴɢ ғᴏʀ '
-                    f'<code>{is_misspelled}</code></b>'
-                )
-                await asyncio.sleep(2)
-                message.text = is_misspelled
-                await ai_sts.delete()
-                return await auto_filter(client, message)
-
-            await ai_sts.delete()
-            return await advantage_spell_chok(client, message)
+            search = await replace_words(message.text)		
+            search = search.lower()
+            search = search.replace("-", " ")
+            search = search.replace(":","")
+			search = search.replace("'","")
+            search = re.sub(r'\s+', ' ', search).strip()
+            m=await message.reply_text(f'<b>Wait {message.from_user.mention} Searching Your Query: <i>{search}...</i></b>', reply_to_message_id=message.id)
+            files, offset, total_results = await get_search_results(message.chat.id ,search, offset=0, filter=True)
+            settings = await get_settings(message.chat.id)
+            if not files:
+                if settings["spell_check"]:
+                    ai_sts = await m.edit('🤖 ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ, ᴀɪ ɪꜱ ᴄʜᴇᴄᴋɪɴɢ ʏᴏᴜʀ ꜱᴘᴇʟʟɪɴɢ...')
+                    is_misspelled = await ai_spell_check(chat_id = message.chat.id,wrong_name=search)
+                    if is_misspelled:
+                        await ai_sts.edit(f'<b>✅Aɪ Sᴜɢɢᴇsᴛᴇᴅ ᴍᴇ<code> {is_misspelled}</code> \nSᴏ Iᴍ Sᴇᴀʀᴄʜɪɴɢ ғᴏʀ <code>{is_misspelled}</code></b>')
+                        await asyncio.sleep(2)
+                        message.text = is_misspelled
+                        await ai_sts.delete()
+                        return await auto_filter(client, message)
                     await ai_sts.delete()
                     return await advantage_spell_chok(client, message)
         else:
