@@ -14,15 +14,15 @@ def is_enabled(value, default):
         return default
 
 
-SESSION = environ.get('SESSION', 'media_search')
-API_ID = int(environ.get('API_ID', ''))
-API_HASH = environ.get('API_HASH', '')
+SESSION = environ.get('SESSION', 'dreamxbotz_search')
+API_ID = int(environ.get('API_ID', '24955235'))
+API_HASH = environ.get('API_HASH', 'f317b3f7bbe390346d8b46868cff0de8')
 BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 
-PICS = (environ.get('PICS', 'https://i.ibb.co/ch3n9wsf/x.jpg')).split() 
+PICS = (environ.get('PICS', 'https://files.catbox.moe/i19rc6.jpg')).split() 
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/62efbcc4e7580b76530ba.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://graph.org/file/e215d12bfd4fa2155e90e.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/13702ae26fb05df52667c.jpg")
@@ -30,34 +30,34 @@ SUBSCRIPTION = (environ.get('SUBSCRIPTION', 'https://telegra.ph/file/f983d857f3c
 FSUB_IMG = (environ.get('FSUB_IMG', 'https://i.ibb.co/cShkPjcZ/x.jpg')).split() 
 
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()] 
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-100').split()]
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-100'))  
-BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-100'))  
-MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-100'))  
-PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-100')) 
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002054782510 -1003138028091 -1003009129835 -1002430428662').split()]
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002281936352'))  
+BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002516815558'))  
+MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-1003168022741'))  
+PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1003193695139')) 
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-reqst_channel = environ.get('REQST_CHANNEL_ID', '-100') 
+reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002978676011') 
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
-support_chat_id = environ.get('SUPPORT_CHAT_ID', '-100') 
+support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1003395468137') 
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'SilentXBotz_files')
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Cluster0:Cluster0@cluster0.c07xkuf.mongodb.net/?")
+DATABASE_NAME = environ.get('DATABASE_NAME', "newbot")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegraam_files')
 
 # If MULTIPLE_DB Is True Then Fill DATABASE_URI2 Value Else You Will Get Error.
 MULTIPLE_DB = is_enabled(os.environ.get('MULTIPLE_DB', "True"), True) # Type True For Turn On MULTIPLE DB FUNTION 
-DATABASE_URI2 = environ.get('DATABASE_URI2', "")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://Renamer:ZenitsuBot@cluster0.wxgxdz9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DB_CHANGE_LIMIT = int(environ.get('DB_CHANGE_LIMIT', "432")) 
 
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/SilentXBotz')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/SilentXBotz')
-OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/SilentXBotz')
-UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/SilentXBotz')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/MOVIE_REQUESTX')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/NeonGhost_Network')
+OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/NeonGhost')
+UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/+fqfCSCANY6E1ODVl')
 
-AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-100") # add multiple channels here, separated by single space
-AUTH_REQ_CHANNEL = environ.get('AUTH_REQ_CHANNEL', '-100')
+AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-1001980994910 -1003381790218") # add multiple channels here, separated by single space
+AUTH_REQ_CHANNEL = environ.get('AUTH_REQ_CHANNEL', '-1003462996661')
 
 IS_VERIFY = is_enabled('IS_VERIFY', False)
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-100'))
@@ -86,12 +86,12 @@ MAX_B_TN = environ.get("MAX_B_TN", "8")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
 PORT = environ.get("PORT", "8089")
 MSG_ALRT = environ.get('MSG_ALRT', 'Share & Support Us ♥️')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/') 
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/+1GXGf_lBP7s1ZDg1') 
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
-AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "300"))  
+AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "21600"))  
 BUTTON_MODE = is_enabled((environ.get('BUTTON_MODE', "True")), True)
 IS_LANDSCAPE_POSTER = is_enabled((environ.get('IS_LANDSCAPE_POSTER', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
@@ -101,9 +101,9 @@ LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False")
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
-FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).split()]
+FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '-1001973345995')).split()]
 MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "False")), False)
-PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), True)
+PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "True")), True)
 PM_SEARCH = bool(environ.get('PM_SEARCH', True)) 
 EMOJI_MODE = bool(environ.get('EMOJI_MODE', False)) 
 PAID_STREAM = bool(environ.get('PAID_STREAM', True)) 
@@ -120,33 +120,40 @@ QUALITIES = ["360P", "", "480P", "", "720P", "", "1080P", "", "1440P", "", "2160
 SEASONS = ["Season 1", "Season 2", "Season 3", "Season 4", "Season 5", "Season 6", "Season 7", "Season 8", "Season 9", "Season 10"]
 
 
-NO_PORT = bool(environ.get('NO_PORT', False))
-APP_NAME = None
-if 'DYNO' in environ:
-    ON_HEROKU = True
-    APP_NAME = environ.get('APP_NAME')
-else:
-    ON_HEROKU = False
+from os import environ, getenv
+
+# ==============================
+# HEROKU DETECTION
+# ==============================
+ON_HEROKU = 'DYNO' in environ
+
+# ==============================
+# APP / SERVER CONFIG
+# ==============================
+APP_NAME = "movie-master-bot2-5f47bbd93d38"
+
+# Heroku always uses HTTPS
+URL = f"https://{APP_NAME}.herokuapp.com/"
+
+# ==============================
+# SERVER SETTINGS
+# ==============================
+NO_PORT = bool(environ.get('NO_PORT', True))
 BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
-FQDN = str(getenv('FQDN', BIND_ADRESS)) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
-URL = "https://{}/".format(FQDN) if ON_HEROKU or NO_PORT else "https://{}/".format(FQDN, PORT)
+
+# ==============================
+# BOT SETTINGS
+# ==============================
 SLEEP_THRESHOLD = int(environ.get('SLEEP_THRESHOLD', '60'))
 WORKERS = int(environ.get('WORKERS', '4'))
 SESSION_NAME = str(environ.get('SESSION_NAME', 'SilentXBotz'))
 MULTI_CLIENT = False
 name = str(environ.get('name', 'SilentX'))
-PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-if 'DYNO' in environ:
-    ON_HEROKU = True
-    APP_NAME = str(getenv('APP_NAME'))
-else:
-    ON_HEROKU = False
-HAS_SSL = bool(getenv('HAS_SSL', False))
-if HAS_SSL:
-    URL = "https://{}/".format(FQDN)
-else:
-    URL = "http://{}/".format(FQDN)
 
+# ==============================
+# PING / UPTIME
+# ==============================
+PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
 
 REACTIONS = ["🤝", "😇", "🤗", "😍", "👍", "🎅", "😐", "🥰", "🤩", "😱", "🤣", "😘", "👏", "😛", "😈", "🎉", "⚡️", "🫡", "🤓", "😎", "🏆", "🔥", "🤭", "🌚", "🆒", "👻", "😁"]
 
